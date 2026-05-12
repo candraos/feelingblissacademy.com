@@ -1,12 +1,13 @@
 export const navigationItems = [
   { href: "#home", label: "الرئيسية" },
-  { href: "#about", label: "عن الدكتورة" },
+ 
   { href: "#audience", label: "لمن هذا الموقع؟" },
+  { href: "#about", label: "عن الدكتورة" },
   { href: "#book", label: "الكتاب المجاني" },
   { href: "#call", label: "المكالمة المجانية" },
-  { href: "#services", label: "البرامج والخدمات" },
+  // { href: "#services", label: "البرامج والخدمات" },
   { href: "#faq", label: "الأسئلة الشائعة" },
-  { href: "#contact", label: "تواصل معنا" },
+  // { href: "#contact", label: "تواصل معنا" },
 ] as const;
 
 export const directCards = [
