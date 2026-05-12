@@ -273,7 +273,7 @@ export function ServicesSection() {
 export function JourneySection() {
   return (
     <section className="section section-panel">
-      <div className="container">
+      <div className="container px-8">
         <SectionHeading
           kicker="رحلة التحول"
           title="رحلتك لا تبدأ عندما تختفي مخاوفك… بل عندما تفهمها"

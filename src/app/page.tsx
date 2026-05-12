@@ -31,7 +31,7 @@ export default function Home() {
         <FailureSection />
         <BookSection />
         <CallSection />
-        <ServicesSection />
+        {/* <ServicesSection /> */}
         <JourneySection />
         <FaqSection />
         <ContactSection />
