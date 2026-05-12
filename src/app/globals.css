@@ -539,6 +539,7 @@ section[id] {
   display: grid;
   gap: 2rem;
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  padding: 0 30px;
 }
 
 .insight-card,
