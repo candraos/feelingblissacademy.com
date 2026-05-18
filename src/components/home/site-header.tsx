@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { navigationItems } from "@/components/home/content";
+import { MobileSideNav } from "@/components/home/mobile-side-nav";
 import { ScheduleButton } from "@/components/home/shared";
 import { siteConfig } from "@/lib/site-config";
 
@@ -36,6 +37,11 @@ export function SiteHeader() {
         <ScheduleButton
           label="احجز مكالمتك المجانية"
           className="button button-primary header-cta"
+        />
+
+        <MobileSideNav
+          items={navigationItems}
+          calendlyUrl={siteConfig.calendlyUrl}
         />
       </div>
     </header>
