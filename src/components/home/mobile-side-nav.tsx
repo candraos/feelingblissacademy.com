@@ -7,12 +7,14 @@ type MobileSideNavProps = {
     href: string;
     label: string;
   }>;
+  tagline: string;
   ctaHref: string;
   ctaLabel: string;
 };
 
 export function MobileSideNav({
   items,
+  tagline,
   ctaHref,
   ctaLabel,
 }: MobileSideNavProps) {
@@ -44,38 +46,58 @@ export function MobileSideNav({
 
   return (
     <>
-      <div className="mobile-side-nav">
+      <div className="md:hidden">
         <button
           type="button"
-          className="mobile-side-nav__toggle"
+          className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75"
           aria-expanded={isOpen}
           aria-controls="mobile-side-nav-drawer"
           aria-label="فتح قائمة التنقل"
           onClick={() => setIsOpen(true)}
         >
-          <span className="mobile-side-nav__toggle-lines" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
+          <span className="sr-only">Toggle menu</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="size-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
         </button>
       </div>
 
       {isOpen ? (
-        <div className="mobile-side-nav__overlay" onClick={closeNav}>
+        <div
+          className="fixed inset-0 z-50 bg-white/95 md:hidden"
+          onClick={closeNav}
+        >
           <aside
             id="mobile-side-nav-drawer"
-            className="mobile-side-nav__drawer"
+            className="absolute inset-y-0 right-0 grid w-full max-w-sm gap-6 bg-white p-5 shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="قائمة التنقل"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mobile-side-nav__header">
-              <p>التنقل</p>
+            <div className="flex items-start justify-between gap-4">
+              <div className="grid gap-1">
+                <p className="m-0 text-lg font-extrabold text-slate-900">
+                  التنقل
+                </p>
+                <span className="text-sm text-slate-500">{tagline}</span>
+              </div>
+
               <button
                 type="button"
-                className="mobile-side-nav__close"
+                className="text-sm font-bold text-teal-700"
                 aria-label="إغلاق القائمة"
                 onClick={closeNav}
               >
@@ -83,16 +105,21 @@ export function MobileSideNav({
               </button>
             </div>
 
-            <nav className="mobile-side-nav__nav" aria-label="أقسام الصفحة">
+            <nav className="grid gap-2" aria-label="أقسام الصفحة">
               {items.map((item) => (
-                <a key={item.href} href={item.href} onClick={closeNav}>
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeNav}
+                  className="rounded-xl bg-teal-50 px-4 py-3 text-slate-800 transition hover:bg-teal-100"
+                >
                   {item.label}
                 </a>
               ))}
             </nav>
 
             <a
-              className="button button-primary mobile-side-nav__cta"
+              className="mt-auto inline-flex min-h-12 items-center justify-center rounded-md bg-teal-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-teal-700"
               href={ctaHref}
               onClick={closeNav}
             >
