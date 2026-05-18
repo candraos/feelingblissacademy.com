@@ -28,10 +28,6 @@ export default function Home() {
       </main>
 
       <SiteFooter />
-
-      <a className="mobile-float-cta" href="#offer">
-        احجز مقعدك الآن
-      </a>
     </div>
   );
 }

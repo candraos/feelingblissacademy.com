@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useEffectEvent, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type MobileSideNavProps = {
   items: ReadonlyArray<{
@@ -10,6 +10,7 @@ type MobileSideNavProps = {
   tagline: string;
   ctaHref: string;
   ctaLabel: string;
+  activeHref: string;
 };
 
 export function MobileSideNav({
@@ -17,12 +18,40 @@ export function MobileSideNav({
   tagline,
   ctaHref,
   ctaLabel,
+  activeHref,
 }: MobileSideNavProps) {
+  const [isMounted, setIsMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const closeNav = useEffectEvent(() => setIsOpen(false));
+  const closeTimeoutRef = useRef<number | null>(null);
+
+  function clearCloseTimeout() {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  }
+
+  function openNav() {
+    clearCloseTimeout();
+    setIsMounted(true);
+
+    window.requestAnimationFrame(() => {
+      setIsOpen(true);
+    });
+  }
+
+  function closeNav() {
+    clearCloseTimeout();
+    setIsOpen(false);
+
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setIsMounted(false);
+      closeTimeoutRef.current = null;
+    }, 220);
+  }
 
   useEffect(() => {
-    if (!isOpen) {
+    if (!isMounted) {
       return;
     }
 
@@ -41,19 +70,21 @@ export function MobileSideNav({
     return () => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+      clearCloseTimeout();
     };
-  }, [isOpen, closeNav]);
+  }, [isMounted]);
 
   return (
     <>
       <div className="md:hidden">
         <button
           type="button"
-          className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75"
+          className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-700"
           aria-expanded={isOpen}
           aria-controls="mobile-side-nav-drawer"
+          data-testid="mobile-side-nav-toggle"
           aria-label="فتح قائمة التنقل"
-          onClick={() => setIsOpen(true)}
+          onClick={openNav}
         >
           <span className="sr-only">Toggle menu</span>
           <svg
@@ -74,14 +105,18 @@ export function MobileSideNav({
         </button>
       </div>
 
-      {isOpen ? (
+      {isMounted ? (
         <div
-          className="fixed inset-0 z-50 bg-white/95 md:hidden"
+          className="fixed inset-0 z-50 bg-white md:hidden"
+          data-testid="mobile-side-nav-overlay"
           onClick={closeNav}
         >
           <aside
             id="mobile-side-nav-drawer"
-            className="absolute inset-y-0 right-0 grid w-full max-w-sm gap-6 bg-white p-5 shadow-2xl"
+            data-testid="mobile-side-nav-drawer"
+            className={`absolute inset-y-0 right-0 grid w-[calc(100%-2.5rem)] max-w-sm gap-6 border-l border-slate-200 bg-white p-5 shadow-2xl transition-transform duration-200 ease-out ${
+              isOpen ? "translate-x-0" : "translate-x-full"
+            }`}
             role="dialog"
             aria-modal="true"
             aria-label="قائمة التنقل"
@@ -106,20 +141,29 @@ export function MobileSideNav({
             </div>
 
             <nav className="grid gap-2" aria-label="أقسام الصفحة">
-              {items.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeNav}
-                  className="rounded-xl bg-teal-50 px-4 py-3 text-slate-800 transition hover:bg-teal-100"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {items.map((item) => {
+                const isActive = item.href === activeHref;
+
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeNav}
+                    className={`rounded-xl border px-4 py-3 transition ${
+                      isActive
+                        ? "border-green-200 bg-white font-semibold text-green-600 underline decoration-2 decoration-green-600 underline-offset-8"
+                        : "border-slate-200 bg-white text-slate-800 hover:border-teal-200 hover:bg-teal-50"
+                    }`}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
             </nav>
 
             <a
-              className="mt-auto inline-flex min-h-12 items-center justify-center rounded-md bg-teal-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-teal-700"
+              className="mt-auto inline-flex min-h-12 items-center justify-center rounded-md bg-teal-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-teal-700 hover:text-white"
               href={ctaHref}
               onClick={closeNav}
             >
