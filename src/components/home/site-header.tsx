@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { navigationItems } from "@/components/home/content";
-import { MobileSideNav } from "@/components/home/mobile-side-nav";
 import { siteConfig } from "@/lib/site-config";
 
 type NavigationHref = (typeof navigationItems)[number]["href"];
@@ -81,7 +80,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-gray-100 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-16 lg:gap-8 lg:px-8">
-        <div className="order-1 flex flex-1 items-center justify-start md:order-2 md:justify-between">
+        <div className="order-2 flex flex-1 items-center justify-end md:order-2 md:justify-between">
           <nav aria-label="Global" className="hidden md:block">
             <ul className="flex items-center gap-6 text-sm">
               {navigationItems.map((item) => {
@@ -107,27 +106,17 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex md:gap-4">
-              <a
-                className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 hover:text-white"
-                href="#offer"
-              >
-                اشترك الآن
-              </a>
-            </div>
-
-            <MobileSideNav
-              items={navigationItems}
-              tagline="طريقك نحو تحقيق أهدافك"
-              ctaHref="#offer"
-              ctaLabel="اشترك الآن"
-              activeHref={activeHref}
-            />
+            <a
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 hover:text-white md:px-5"
+              href="#offer"
+            >
+              اشترك الآن
+            </a>
           </div>
         </div>
 
         <a
-          className="order-2 flex items-center text-teal-600 md:order-1"
+          className="order-1 flex items-center text-teal-600 md:order-1"
           href="#hero"
           aria-label="العودة إلى بداية الصفحة"
         >

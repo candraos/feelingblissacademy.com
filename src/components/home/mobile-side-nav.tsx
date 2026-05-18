@@ -56,8 +56,12 @@ export function MobileSideNav({
     }
 
     const originalOverflow = document.body.style.overflow;
+    const originalBodyBackground = document.body.style.background;
+    const originalHtmlBackground = document.documentElement.style.background;
 
     document.body.style.overflow = "hidden";
+    document.body.style.background = "#ffffff";
+    document.documentElement.style.background = "#ffffff";
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -69,6 +73,8 @@ export function MobileSideNav({
 
     return () => {
       document.body.style.overflow = originalOverflow;
+      document.body.style.background = originalBodyBackground;
+      document.documentElement.style.background = originalHtmlBackground;
       window.removeEventListener("keydown", handleKeyDown);
       clearCloseTimeout();
     };
@@ -107,14 +113,15 @@ export function MobileSideNav({
 
       {isMounted ? (
         <div
-          className="fixed inset-0 z-50 bg-white md:hidden"
+          className="fixed inset-0 z-50 overflow-hidden bg-white md:hidden"
           data-testid="mobile-side-nav-overlay"
           onClick={closeNav}
         >
+          <div className="absolute inset-0 bg-white" aria-hidden="true" />
           <aside
             id="mobile-side-nav-drawer"
             data-testid="mobile-side-nav-drawer"
-            className={`absolute inset-y-0 right-0 grid w-[calc(100%-2.5rem)] max-w-sm gap-6 border-l border-slate-200 bg-white p-5 shadow-2xl transition-transform duration-200 ease-out ${
+            className={`relative ms-auto flex min-h-dvh w-[calc(100%-2.5rem)] max-w-sm flex-col gap-6 border-l border-slate-200 bg-white p-5 shadow-none transition-transform duration-200 ease-out ${
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
             role="dialog"
