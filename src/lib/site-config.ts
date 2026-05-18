@@ -3,11 +3,12 @@ export const siteConfig = {
   arabicName: "أكاديمية Feeling Bliss",
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://feelingblissacademy.com",
-  calendlyUrl: "https://calendly.com/feelingblissacademy/15min",
   logoUrl: "/branding/feeling-bliss-academy-logo.png",
   email:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@feelingblissacademy.com",
-  whatsappUrl: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "",
+  whatsappNumberDisplay: "+961 3 967 806",
+  whatsappUrl:
+    process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/9613967806",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "",
   offerOriginalPrice: 299,
   offerCurrentPrice: 99,

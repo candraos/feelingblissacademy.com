@@ -1,4 +1,3 @@
-import { EnrollmentForm } from "@/components/interactive-forms";
 import {
   audienceItems,
   bonusItems,
@@ -45,7 +44,7 @@ export function SolutionSection() {
           <SectionHeading
             kicker="لدينا الحل"
             title="مرحباً بك في أكاديمية The Feeling Bliss.. حيث تتحول العرقلة إلى قوة دفع!"
-            description="في الأكاديمية، لا نقدم لك مجرد نصائح إنشائية. لقد صممنا نظاماً مهنياً ومتكاملاً يدمج بين التشبيك النفسي (الذهنية والنوايا) والتمكين المادي العملي (الخطوات والاستراتيجيات) لتتخلص من المعيقات وتصل إلى حالة النعيم والبهجة النفسية والوفرة المالية التي تستحقها."
+            description="في الأكاديمية، لا نقدم لك مجرد نصائح إنشائية. لقد صممنا نظاماً مهنياً ومتكاملاً يدمج بين التشبيك النفسي والتمكين المادي العملي لتتخلص من المعيقات وتصل إلى حالة النعيم والبهجة النفسية والوفرة المالية التي تستحقها."
           />
         </div>
 
@@ -138,8 +137,8 @@ export function SocialProofSection() {
             <p className="trust-kicker">ضمان 100%</p>
             <h3>جرّب البرنامج بأمان كامل</h3>
             <p>
-              إذا شعرت أن البرنامج لم يضف لك قيمة حقيقية، يمكنك طلب استرداد
-              كامل خلال {siteConfig.refundWindowDays} أيام.
+              إذا شعرت أن البرنامج لم يضف لك قيمة حقيقية، يمكنك طلب استرداد كامل خلال{" "}
+              {siteConfig.refundWindowDays} أيام.
             </p>
           </div>
 
@@ -179,8 +178,8 @@ export function OfferSection() {
             </div>
 
             <p className="pricing-copy">
-              يشمل البرنامج الكامل، الأدوات التطبيقية، والمكافآت التي تساعدك
-              على الربط بين الوعي النفسي والانضباط المالي.
+              يشمل البرنامج الكامل، الأدوات التطبيقية، والمكافآت التي تساعدك على الربط بين
+              الوعي النفسي والانضباط المالي.
             </p>
 
             <ul className="feature-list" role="list">
@@ -200,23 +199,34 @@ export function OfferSection() {
           </article>
 
           <article className="surface-card register-card">
-            <p className="register-kicker">التسجيل السريع</p>
-            <h3>أرسل بياناتك واحجز مقعدك الآن</h3>
+            <p className="register-kicker">الحجز المباشر</p>
+            <h3>احجز مقعدك الآن عبر واتساب</h3>
             <p>
-              نموذج التسجيل مبسّط جداً: الاسم، البريد الإلكتروني، ورقم الهاتف
-              فقط. بعد الإرسال سننسق معك خطوات التفعيل والدفع.
+              أزلنا نموذج التسجيل. راسلنا مباشرة على واتساب وسنرسل لك تفاصيل التسجيل،
+              آلية الدفع، وخطوات البدء المناسبة لك.
             </p>
 
-            <EnrollmentForm email={siteConfig.email} />
-
             <a
-              className="register-link"
-              href={siteConfig.calendlyUrl}
+              className="button button-primary"
+              href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              أو احجز مكالمة تعريفية سريعة قبل التسجيل
+              ابدأ الحجز على واتساب
             </a>
+
+            <a
+              className="register-link"
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              الرقم المباشر: {siteConfig.whatsappNumberDisplay}
+            </a>
+
+            <p className="form-caption">
+              سنرد عليك مباشرة لتأكيد المقعد والإجابة عن أي سؤال قبل الاشتراك.
+            </p>
           </article>
         </div>
       </div>
@@ -239,11 +249,14 @@ export function FinalCtaSection() {
           <OfferCountdown />
 
           <div className="hero-actions centered-buttons">
-            <a className="button button-primary" href="#offer">
-              احجز مقعدك الآن في الأكاديمية
-            </a>
-            <a className="button button-secondary" href={`mailto:${siteConfig.email}`}>
-              تواصل معنا
+            
+            <a
+              className="button button-secondary"
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              تحدث معنا على واتساب
             </a>
           </div>
         </article>

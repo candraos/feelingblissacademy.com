@@ -16,7 +16,13 @@ export function SiteFooter() {
         <nav className="footer-links" aria-label="روابط التذييل">
           <Link href="/privacy-policy">سياسة الخصوصية</Link>
           <Link href="/terms">الشروط والأحكام</Link>
-          <a href={`mailto:${siteConfig.email}`}>تواصل معنا</a>
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            تواصل معنا
+          </a>
         </nav>
 
         <p className="footer-copy">

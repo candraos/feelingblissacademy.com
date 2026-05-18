@@ -1,8 +1,5 @@
 import Image from "next/image";
-import {
-  heroHighlights,
-  heroStats,
-} from "@/components/home/content";
+import { heroHighlights, heroStats } from "@/components/home/content";
 import { siteConfig } from "@/lib/site-config";
 
 export function HeroSection() {
@@ -18,14 +15,18 @@ export function HeroSection() {
           </h1>
 
           <p className="hero-description">
-            سواء كانت العرقلة نفسية (مخاوف وشكوك داخلية) أو مادية (تحديات مالية
-            وإدارة موارد)، نحن هنا لنمنحك الحل المتكامل والنظام العملي للانتقال
-            من التعثر إلى التميز.
+            سواء كانت العرقلة نفسية أو مادية، نحن هنا لنمنحك الحل المتكامل
+            والنظام العملي للانتقال من التعثر إلى التميز.
           </p>
 
           <div className="hero-actions">
-            <a className="button button-primary" href="#offer">
-              اشترك الآن وابدأ رحلة التغيير
+            <a
+              className="button button-primary"
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              اشترك عبر واتساب وابدأ رحلة التغيير
             </a>
             <a className="button button-secondary" href="#modules">
               اكتشف محاور البرنامج

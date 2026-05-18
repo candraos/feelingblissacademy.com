@@ -107,8 +107,10 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-4">
             <a
-              className="inline-flex min-h-11 items-center justify-center rounded-md bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 hover:text-white md:px-5"
-              href="#offer"
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-teal-600 px-4 py-2.5 text-sm font-medium text-white! transition hover:bg-teal-700 hover:text-white md:px-5"
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               اشترك الآن
             </a>
