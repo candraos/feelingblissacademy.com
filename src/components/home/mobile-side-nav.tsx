@@ -1,20 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 
 type MobileSideNavProps = {
   items: ReadonlyArray<{
     href: string;
     label: string;
   }>;
-  calendlyUrl: string;
+  ctaHref: string;
+  ctaLabel: string;
 };
 
 export function MobileSideNav({
   items,
-  calendlyUrl,
+  ctaHref,
+  ctaLabel,
 }: MobileSideNavProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const closeNav = useEffectEvent(() => setIsOpen(false));
 
   useEffect(() => {
     if (!isOpen) {
@@ -27,7 +30,7 @@ export function MobileSideNav({
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setIsOpen(false);
+        closeNav();
       }
     }
 
@@ -37,7 +40,7 @@ export function MobileSideNav({
       document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, closeNav]);
 
   return (
     <>
@@ -59,10 +62,7 @@ export function MobileSideNav({
       </div>
 
       {isOpen ? (
-        <div
-          className="mobile-side-nav__overlay"
-          onClick={() => setIsOpen(false)}
-        >
+        <div className="mobile-side-nav__overlay" onClick={closeNav}>
           <aside
             id="mobile-side-nav-drawer"
             className="mobile-side-nav__drawer"
@@ -77,22 +77,15 @@ export function MobileSideNav({
                 type="button"
                 className="mobile-side-nav__close"
                 aria-label="إغلاق القائمة"
-                onClick={() => setIsOpen(false)}
+                onClick={closeNav}
               >
                 إغلاق
               </button>
             </div>
 
-            <nav
-              className="mobile-side-nav__nav"
-              aria-label="التنقل في الجوال"
-            >
+            <nav className="mobile-side-nav__nav" aria-label="أقسام الصفحة">
               {items.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                >
+                <a key={item.href} href={item.href} onClick={closeNav}>
                   {item.label}
                 </a>
               ))}
@@ -100,12 +93,10 @@ export function MobileSideNav({
 
             <a
               className="button button-primary mobile-side-nav__cta"
-              href={calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
+              href={ctaHref}
+              onClick={closeNav}
             >
-              احجز مكالمتك المجانية
+              {ctaLabel}
             </a>
           </aside>
         </div>

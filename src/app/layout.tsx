@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     description: seoConfig.description,
     url: siteConfig.siteUrl,
     siteName: siteConfig.englishName,
-    locale: "ar_AR",
+    locale: "ar_LB",
     type: "website",
     images: [
       {
         url: siteConfig.logoUrl,
         width: 1258,
         height: 1254,
-        alt: "شعار فيلينغ بليس أكاديمي",
+        alt: "شعار Feeling Bliss Academy",
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f2348",
+  themeColor: "#0d6664",
   colorScheme: "light",
 };
 

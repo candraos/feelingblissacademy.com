@@ -10,5 +10,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: [`${siteConfig.siteUrl}${siteConfig.logoUrl}`],
     },
+    {
+      url: `${siteConfig.siteUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${siteConfig.siteUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 }

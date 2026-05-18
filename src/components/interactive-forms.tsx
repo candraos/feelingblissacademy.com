@@ -2,14 +2,14 @@
 
 import { FormEvent, useId, useState } from "react";
 
-type ContactFormProps = {
+type EnrollmentFormProps = {
   email: string;
 };
 
-export function ContactForm({ email }: ContactFormProps) {
+export function EnrollmentForm({ email }: EnrollmentFormProps) {
   const nameId = useId();
   const emailId = useId();
-  const messageId = useId();
+  const phoneId = useId();
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -23,69 +23,75 @@ export function ContactForm({ email }: ContactFormProps) {
     const formData = new FormData(form);
     const name = String(formData.get("name") ?? "").trim();
     const sender = String(formData.get("email") ?? "").trim();
-    const message = String(formData.get("message") ?? "").trim();
-
-    const subject = encodeURIComponent(`رسالة جديدة من ${name}`);
+    const phone = String(formData.get("phone") ?? "").trim();
+    const subject = encodeURIComponent(`طلب تسجيل جديد - ${name}`);
     const body = encodeURIComponent(
-      `الاسم: ${name}\nالبريد الإلكتروني: ${sender}\n\nالرسالة:\n${message}`
+      [
+        "مرحباً،",
+        "",
+        "أرغب في التسجيل في برنامج Feeling Bliss Academy.",
+        "",
+        `الاسم: ${name}`,
+        `البريد الإلكتروني: ${sender}`,
+        `رقم الهاتف: ${phone}`,
+      ].join("\n")
     );
 
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-
     setSubmitted(true);
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      <div className="form-grid">
-        <div className="form-field">
-          <label htmlFor={nameId}>الاسم</label>
-          <input
-            id={nameId}
-            name="name"
-            type="text"
-            autoComplete="name"
-            placeholder="كيف تحب أن نخاطبك؟"
-            required
-          />
-        </div>
-
-        <div className="form-field">
-          <label htmlFor={emailId}>البريد الإلكتروني</label>
-          <input
-            id={emailId}
-            name="email"
-            type="email"
-            autoComplete="email"
-            placeholder="اكتب بريدك الإلكتروني"
-            required
-          />
-        </div>
+    <form className="enrollment-form" onSubmit={handleSubmit} noValidate>
+      <div className="form-field">
+        <label htmlFor={nameId}>الاسم</label>
+        <input
+          id={nameId}
+          name="name"
+          type="text"
+          autoComplete="name"
+          placeholder="اكتب اسمك الكامل"
+          required
+        />
       </div>
 
       <div className="form-field">
-        <label htmlFor={messageId}>رسالتك</label>
-        <textarea
-          id={messageId}
-          name="message"
-          rows={5}
-          placeholder="شاركنا ما يشغلك أو ما تريد أن تبدأ بفهمه"
+        <label htmlFor={emailId}>البريد الإلكتروني</label>
+        <input
+          id={emailId}
+          name="email"
+          type="email"
+          autoComplete="email"
+          placeholder="name@example.com"
+          required
+        />
+      </div>
+
+      <div className="form-field">
+        <label htmlFor={phoneId}>رقم الهاتف</label>
+        <input
+          id={phoneId}
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          placeholder="+961"
           required
         />
       </div>
 
       <button className="button button-primary" type="submit">
-        أرسل رسالتك
+        أرسل بياناتي الآن
       </button>
 
       <p className="form-caption">
-        عند الإرسال سيفتح بريدك الإلكتروني لتكمل الرسالة بالطريقة التي تناسبك.
+        عند الإرسال سيفتح بريدك الإلكتروني تلقائياً لتأكيد بياناتك وإتمام طلب
+        التسجيل.
       </p>
 
       {submitted ? (
         <p className="form-success" role="status" aria-live="polite">
-          فتحنا لك بريدك الإلكتروني لتكمل الرسالة. وإذا أردت الطريق الأقصر،
-          يمكنك دائمًا حجز مكالمة مجانية أولًا.
+          تم تجهيز رسالة التسجيل. إذا لم يفتح بريدك تلقائياً يمكنك مراسلتنا على{" "}
+          <a href={`mailto:${email}`}>{email}</a>.
         </p>
       ) : null}
     </form>

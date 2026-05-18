@@ -1,28 +1,26 @@
 import Image from "next/image";
 import { navigationItems } from "@/components/home/content";
 import { MobileSideNav } from "@/components/home/mobile-side-nav";
-import { ScheduleButton } from "@/components/home/shared";
 import { siteConfig } from "@/lib/site-config";
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container header-layout">
-        <a className="brand" href="#home" aria-label="العودة إلى الرئيسية">
+        <a className="brand" href="#hero" aria-label="العودة إلى بداية الصفحة">
           <span className="brand-logo">
             <Image
               src={siteConfig.logoUrl}
-              alt="شعار فيلينغ بليس أكاديمي"
-              width={72}
-              height={72}
-              sizes="72px"
+              alt="شعار Feeling Bliss Academy"
+              width={68}
+              height={68}
+              sizes="68px"
             />
           </span>
+
           <span className="brand-copy">
-            <strong>{siteConfig.arabicName}</strong>
-            <span>
-              {siteConfig.practitionerName} | {siteConfig.practitionerTitle}
-            </span>
+            <strong>{siteConfig.englishName}</strong>
+            <span>طريقك نحو تحقيق أهدافك</span>
           </span>
         </a>
 
@@ -34,14 +32,14 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <ScheduleButton
-          label="احجز مكالمتك المجانية"
-          className="button button-primary header-cta"
-        />
+        <a className="button button-primary header-cta" href="#offer">
+          اشترك الآن
+        </a>
 
         <MobileSideNav
           items={navigationItems}
-          calendlyUrl={siteConfig.calendlyUrl}
+          ctaHref="#offer"
+          ctaLabel="اشترك الآن"
         />
       </div>
     </header>
