@@ -801,7 +801,9 @@ section[id] {
     radial-gradient(circle at top, rgba(13, 102, 100, 0.18), transparent 30%),
     #0b232d;
   color: #edf9f8;
-  padding: 2rem 0 6rem;
+  padding: 1rem;
+  text-align: center;
+  direction: ltr;
 }
 
 .footer-shell {
