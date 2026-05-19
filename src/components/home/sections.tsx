@@ -269,7 +269,16 @@ export function OfferSection() {
               ابدأ الحجز على واتساب
             </a>
 
-           
+            {siteConfig.paymentUrl ? (
+              <a
+                className="button button-secondary button-payment"
+                href={siteConfig.paymentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                بوابة الدفع الإلكتروني
+              </a>
+            ) : null}
 
             <p className="form-caption">
               سنرد عليك مباشرة لتأكيد المقعد والإجابة عن أي سؤال قبل الاشتراك.
@@ -307,7 +316,17 @@ export function FinalCtaSection() {
           <OfferCountdown />
 
           <div className="hero-actions centered-buttons">
-            
+            {siteConfig.paymentUrl ? (
+              <a
+                className="button button-secondary button-payment"
+                href={siteConfig.paymentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ادخل إلى بوابة الدفع الإلكتروني
+              </a>
+            ) : null}
+
             <a
               className="button button-secondary button-red"
               href={siteConfig.whatsappUrl}

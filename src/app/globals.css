@@ -344,6 +344,17 @@ section[id] {
   border-color: rgba(13, 102, 100, 0.18);
 }
 
+.button-payment {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2a2b86, #17195f);
+  border-color: rgba(42, 43, 134, 0.42);
+}
+
+.button-payment:hover,
+.button-payment:focus-visible {
+  box-shadow: 0 16px 36px rgba(23, 25, 95, 0.24);
+}
+
 .hero-section {
   padding-top: 2.8rem;
 }

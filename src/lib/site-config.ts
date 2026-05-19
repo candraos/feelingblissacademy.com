@@ -9,6 +9,7 @@ export const siteConfig = {
   whatsappNumberDisplay: "+961 3 967 806",
   whatsappUrl:
     process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/9613967806",
+  paymentUrl: process.env.NEXT_PUBLIC_PAYMENT_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "",
   offerOriginalPrice: 299,
   offerCurrentPrice: 99,
