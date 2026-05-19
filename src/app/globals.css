@@ -415,6 +415,10 @@ section[id] {
   letter-spacing: 0.03em;
 }
 
+.text-accent-red {
+  color: #ff3131;
+}
+
 .hero-actions,
 .centered-buttons {
   display: flex;
@@ -794,6 +798,8 @@ section[id] {
 .countdown-card-red .countdown-grid div {
   background: rgba(255, 49, 49, 0.18);
 }
+
+
 
 .button-secondary.button-red {
   color: #ffffff;

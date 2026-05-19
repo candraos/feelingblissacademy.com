@@ -19,7 +19,13 @@ export function PainPointsSection() {
         <SectionHeading
           kicker="نحن نشعر بك"
           title="هل تجد نفسك في إحدى هذه الحالات؟"
-          description="إذا كنت ترى نفسك هنا، فالمشكلة ليست في طموحك. المشكلة غالباً في العائق غير المفكوك بعد."
+          description={
+            <>
+              إذا كنت ترى نفسك هنا، فالمشكلة ليست في{" "}
+              <span className="text-accent-red">طموحك</span>. المشكلة غالباً في{" "}
+              <span className="text-accent-red">العائق غير المفكوك</span> بعد.
+            </>
+          }
         />
 
         <div className="card-grid pain-grid">
@@ -43,8 +49,23 @@ export function SolutionSection() {
         <div>
           <SectionHeading
             kicker="لدينا الحل"
-            title="مرحباً بك في Feeling Bliss Academy حيث تتحول العرقلة إلى قوة دفع!"
-            description="في الأكاديمية، لا نقدم لك مجرد نصائح إنشائية. لقد صممنا نظاماً مهنياً ومتكاملاً يدمج بين التشبيك النفسي والتمكين المادي العملي لتتخلص من المعيقات وتصل إلى حالة النعيم والبهجة النفسية والوفرة المالية التي تستحقها."
+            title={
+              <>
+                مرحباً بك في{" "}
+                <span className="text-accent-red">Feeling Bliss Academy</span>{" "}
+                حيث تتحول العرقلة إلى <span className="text-accent-red">قوة دفع!</span>
+              </>
+            }
+            description={
+              <>
+                في الأكاديمية، لا نقدم لك مجرد نصائح إنشائية. لقد صممنا نظاماً
+                مهنياً ومتكاملاً يدمج بين التشبيك النفسي والتمكين المادي العملي
+                لتتخلص من <span className="text-accent-red">المعيقات</span> وتصل
+                إلى حالة النعيم والبهجة النفسية{" "}
+                <span className="text-accent-red">والوفرة المالية</span> التي
+                تستحقها.
+              </>
+            }
           />
         </div>
 
@@ -67,8 +88,17 @@ export function ModulesSection() {
       <div className="container">
         <SectionHeading
           kicker="ماذا ستتعلم؟"
-          title="محاور البرنامج الأساسية"
-          description="قسّمنا الرحلة إلى ثلاث مراحل واضحة حتى لا يضيع منك الطريق بين الوعي والتنفيذ."
+          title={
+            <>
+              محاور <span className="text-accent-red">البرنامج الأساسية</span>
+            </>
+          }
+          description={
+            <>
+              قسّمنا الرحلة إلى <span className="text-accent-red">ثلاث مراحل واضحة</span>{" "}
+              حتى لا يضيع منك الطريق بين الوعي والتنفيذ.
+            </>
+          }
         />
 
         <div className="card-grid module-grid">
@@ -95,8 +125,18 @@ export function AudienceSection() {
       <div className="container">
         <SectionHeading
           kicker="لمن هذا البرنامج؟"
-          title="هذا البرنامج صُمم لمن يملك الطموح لكنه يشعر أنه متوقف في المنتصف"
-          description="إذا كنت تريد توازناً حقيقياً بين الداخل والخارج، بين السلام والإنجاز، فهذه الرحلة بُنيت لك."
+          title={
+            <>
+              هذا البرنامج صُمم لمن يملك <span className="text-accent-red">الطموح</span>{" "}
+              لكنه يشعر أنه <span className="text-accent-red">متوقف في المنتصف</span>
+            </>
+          }
+          description={
+            <>
+              إذا كنت تريد <span className="text-accent-red">توازناً حقيقياً</span>{" "}
+              بين الداخل والخارج، بين السلام والإنجاز، فهذه الرحلة بُنيت لك.
+            </>
+          }
           centered
         />
 
@@ -159,8 +199,19 @@ export function OfferSection() {
       <div className="container">
         <SectionHeading
           kicker="العرض والأسعار"
-          title="استثمر اليوم في انتقالك من العرقلة إلى الوضوح والوفرة"
-          description="عرض محدود لباقة متكاملة تمنحك المحتوى العملي، المكافآت، والمساحة الداعمة لتبدأ بثقة."
+          title={
+            <>
+              استثمر اليوم في انتقالك من{" "}
+              <span className="text-accent-red">العرقلة</span> إلى{" "}
+              <span className="text-accent-red">الوضوح والوفرة</span>
+            </>
+          }
+          description={
+            <>
+              <span className="text-accent-red">عرض محدود</span> لباقة متكاملة
+              تمنحك المحتوى العملي، المكافآت، والمساحة الداعمة لتبدأ بثقة.
+            </>
+          }
         />
 
         <div className="offer-layout">
@@ -178,8 +229,9 @@ export function OfferSection() {
             </div>
 
             <p className="pricing-copy">
-              يشمل البرنامج الكامل، الأدوات التطبيقية، والمكافآت التي تساعدك على الربط بين
-              الوعي النفسي والانضباط المالي.
+              يشمل <span className="text-accent-red">البرنامج الكامل</span>،
+              الأدوات التطبيقية، والمكافآت التي تساعدك على الربط بين الوعي
+              النفسي و<span className="text-accent-red">الانضباط المالي</span>.
             </p>
 
             <ul className="feature-list" role="list">
@@ -200,7 +252,9 @@ export function OfferSection() {
 
           <article className="surface-card register-card">
             <p className="register-kicker">الحجز المباشر</p>
-            <h3>احجز مقعدك الآن عبر واتساب</h3>
+            <h3>
+              احجز <span className="text-accent-red">مقعدك الآن</span> عبر واتساب
+            </h3>
             <p>
               أزلنا نموذج التسجيل. راسلنا مباشرة على واتساب وسنرسل لك تفاصيل التسجيل،
               آلية الدفع، وخطوات البدء المناسبة لك.
@@ -215,14 +269,7 @@ export function OfferSection() {
               ابدأ الحجز على واتساب
             </a>
 
-            <a
-              className="register-link"
-              href={siteConfig.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              الرقم المباشر: {siteConfig.whatsappNumberDisplay}
-            </a>
+           
 
             <p className="form-caption">
               سنرد عليك مباشرة لتأكيد المقعد والإجابة عن أي سؤال قبل الاشتراك.
@@ -241,8 +288,19 @@ export function FinalCtaSection() {
         <article className="final-cta-card">
           <SectionHeading
             kicker="الخطوة الأخيرة"
-            title="أحلامك لا تستحق الانتظار أكثر.. العرقلة تنتهي هنا!"
-            description="لا تؤجل نفسك أكثر. اختر اليوم أن تبدأ بنظام أوضح، نفس أهدأ، وخطوات مالية أكثر ذكاء."
+            title={
+              <>
+                <span className="text-accent-red">أحلامك</span> لا تستحق الانتظار
+                أكثر.. <span className="text-accent-red">العرقلة تنتهي هنا!</span>
+              </>
+            }
+            description={
+              <>
+                لا تؤجل نفسك أكثر. اختر اليوم أن تبدأ{" "}
+                <span className="text-accent-red">بنظام أوضح</span>، نفس أهدأ،
+                وخطوات مالية أكثر ذكاء.
+              </>
+            }
             centered
           />
 

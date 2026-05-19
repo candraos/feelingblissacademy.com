@@ -1,7 +1,9 @@
+import { ReactNode } from "react";
+
 type SectionHeadingProps = {
   kicker: string;
-  title: string;
-  description?: string;
+  title: ReactNode;
+  description?: ReactNode;
   centered?: boolean;
 };
 

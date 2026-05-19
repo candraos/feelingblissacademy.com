@@ -10,13 +10,15 @@ export function HeroSection() {
           <p className="section-kicker">طريقك نحو تحقيق أهدافك</p>
 
           <h1>
-            هل تشعر أن هناك جداراً خفياً يمنعك من الوصول إلى أحلامك؟ حان الوقت
-            لهدمه وتحقيق أهدافك بنجاح!
+            هل تشعر أن هناك جداراً خفياً يمنعك من الوصول إلى{" "}
+            <span className="text-accent-red">أحلامك؟</span> حان الوقت لهدمه
+            وتحقيق أهدافك <span className="text-accent-red">بنجاح!</span>
           </h1>
 
           <p className="hero-description">
-            سواء كانت العرقلة نفسية أو مادية، نحن هنا لنمنحك الحل المتكامل
-            والنظام العملي للانتقال من التعثر إلى التميز.
+            سواء كانت <span className="text-accent-red">العرقلة</span> نفسية أو
+            مادية، نحن هنا لنمنحك الحل المتكامل والنظام العملي للانتقال من
+            التعثر إلى <span className="text-accent-red">التميز.</span>
           </p>
 
           <div className="hero-actions">
@@ -58,11 +60,15 @@ export function HeroSection() {
 
             <div className="hero-card-copy">
               <p className="hero-card-label">{siteConfig.arabicName}</p>
-              <h2>هدوء نفسي، قرار مالي أوضح، وخطوات قابلة للتنفيذ</h2>
+              <h2>
+                <span className="text-accent-red">هدوء نفسي</span>، قرار مالي
+                أوضح، و<span className="text-accent-red">خطوات قابلة للتنفيذ</span>
+              </h2>
               <p>
-                صُممت هذه الصفحة لتقودك تدريجياً من الإرباك إلى الوضوح، ومن
-                التردد إلى التسجيل، عبر رحلة تحترم حالتك النفسية وواقعك المالي
-                معاً.
+                صُممت هذه الصفحة لتقودك تدريجياً من الإرباك إلى{" "}
+                <span className="text-accent-red">الوضوح</span>، ومن التردد إلى
+                التسجيل، عبر رحلة تحترم حالتك النفسية وواقعك{" "}
+                <span className="text-accent-red">المالي</span> معاً.
               </p>
             </div>
 
