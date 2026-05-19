@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   audienceItems,
   bonusItems,
@@ -77,6 +78,84 @@ export function SolutionSection() {
             ))}
           </ul>
         </article>
+      </div>
+    </section>
+  );
+}
+
+export function AboutStorySection() {
+  return (
+    <section className="section" id="about-story">
+      <div className="container">
+        <div className="about-story-layout">
+          <article className="surface-card about-story-card">
+            <SectionHeading
+              kicker="من تجربتي الشخصية"
+              title={
+                <>
+                  من العثرة.. إلى <span className="text-accent-red">التميز</span>:
+                  لماذا أسستُ هذه الأكاديمية؟
+                </>
+              }
+              description="تجربة حقيقية"
+            />
+
+            <div className="about-story-prose">
+              <p>
+                مرحباً، أنا <span className="text-accent-red">الدكتورة آيات عودة</span>.
+              </p>
+              <p>
+                خلال مسيرتي في العلاج النفسي والتطوير الذاتي، واجهتُ وساعدتُ
+                المئات في مواجهة نوعين من الحواجز:{" "}
+                <span className="text-accent-red">عراقيل نفسية</span> كـ
+                (الخوف، الشك، والمماطلة)، و
+                <span className="text-accent-red"> حواجز مادية</span> كـ
+                (سوء إدارة الموارد والشعور الدائم بضيق الميزانية).
+              </p>
+              <p>
+                رأيتُ كيف يربط الكثيرون بين سلامهم الداخلي وقدرتهم على الإنجاز
+                المالي، وكيف يمكن للفوضى في جانب واحد أن تعطل الجانب الآخر
+                تماماً وتؤجل التغيير لأجل غير مسمى.
+              </p>
+              <p>
+                من رحم هذه التحديات، ولدت فكرة{" "}
+                <span className="text-accent-red">Feeling Bliss Academy</span>.
+              </p>
+              <p>
+                لقد صممتُ هذا البرنامج ليكون النظام العملي المتكامل الذي يفكك
+                العقد والمعيقات النفسية أولاً، ثم يبني تمكيناً وعقلية مالية
+                قوية، ليترجم كل ذلك في النهاية إلى خطوات استراتيجية ملموسة على
+                أرض الواقع.
+              </p>
+              <p>
+                عندما تنضم إلينا، أنتِ لا تشتركين في كورس تقليدي، بل تبدأين{" "}
+                <span className="text-accent-red">رحلة حقيقية مدعومة بالخبرة</span>.
+              </p>
+            </div>
+          </article>
+
+          <aside className="surface-card about-story-signature-card">
+            <div className="about-story-logo-shell">
+              <Image
+                src={siteConfig.logoUrl}
+                alt="شعار Feeling Bliss Academy"
+                width={220}
+                height={220}
+                sizes="(max-width: 760px) 140px, 220px"
+              />
+            </div>
+
+            <div className="about-story-signature-copy">
+              <p className="about-story-signature-kicker">مؤسسة الأكاديمية</p>
+              <h3>د. آيات عودة</h3>
+              <p className="about-story-signature-script">Dr. Ayat Awde</p>
+              <p>
+                خبرة نفسية ومهنية صُممت لتربط بين التعافي الداخلي، وضوح القرار،
+                والتنفيذ الواقعي.
+              </p>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   );

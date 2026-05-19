@@ -2,6 +2,7 @@ export const navigationItems = [
   { href: "#hero", label: "الرئيسية" },
   { href: "#pain-points", label: "التحديات" },
   { href: "#solution", label: "الحل" },
+  { href: "#about-story", label: "من نحن؟" },
   { href: "#modules", label: "المحاور" },
   { href: "#audience", label: "لمن البرنامج" },
   { href: "#offer", label: "الأسعار" },

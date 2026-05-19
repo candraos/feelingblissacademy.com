@@ -1,4 +1,5 @@
 import {
+  AboutStorySection,
   AudienceSection,
   FinalCtaSection,
   HeroSection,
@@ -20,6 +21,7 @@ export default function Home() {
         <HeroSection />
         <PainPointsSection />
         <SolutionSection />
+        <AboutStorySection />
         <ModulesSection />
         <AudienceSection />
         <SocialProofSection />

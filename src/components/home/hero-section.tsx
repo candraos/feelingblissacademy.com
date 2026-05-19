@@ -30,8 +30,8 @@ export function HeroSection() {
             >
               اشترك عبر واتساب وابدأ رحلة التغيير
             </a>
-            <a className="button button-secondary" href="#modules">
-              اكتشف محاور البرنامج
+            <a className="button button-secondary" href="#about-story">
+              من نحن؟
             </a>
           </div>
 
