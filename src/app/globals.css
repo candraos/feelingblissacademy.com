@@ -813,9 +813,14 @@ section[id] {
 
 
 .button-secondary.button-red {
-  color: #ffffff;
-  background: linear-gradient(135deg, #ff3131, #d92929);
-  border-color: rgba(255, 49, 49, 0.22);
+  color: #0d3d4b;
+  background: linear-gradient(135deg, #76ddd3, #3ec5bf);
+  border-color: rgba(62, 197, 191, 0.34);
+}
+
+.button-secondary.button-red:hover,
+.button-secondary.button-red:focus-visible {
+  box-shadow: 0 16px 36px rgba(62, 197, 191, 0.28);
 }
 
 .countdown-grid strong {
