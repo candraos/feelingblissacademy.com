@@ -65,7 +65,7 @@ export function OfferCountdown() {
   const { hours, minutes, seconds } = getRemainingParts(remainingMs);
 
   return (
-    <div className="countdown-card" aria-live="polite">
+    <div className="countdown-card countdown-card-red" aria-live="polite">
       <p className="countdown-label">ينتهي هذا العرض الخاص خلال</p>
 
       <div className="countdown-grid">

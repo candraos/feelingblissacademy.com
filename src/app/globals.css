@@ -786,6 +786,21 @@ section[id] {
   gap: 0.2rem;
 }
 
+.countdown-card.countdown-card-red {
+  background: rgba(255, 49, 49, 0.12);
+  border-color: rgba(255, 49, 49, 0.26);
+}
+
+.countdown-card-red .countdown-grid div {
+  background: rgba(255, 49, 49, 0.18);
+}
+
+.button-secondary.button-red {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff3131, #d92929);
+  border-color: rgba(255, 49, 49, 0.22);
+}
+
 .countdown-grid strong {
   font-size: clamp(1.6rem, 5vw, 2.2rem);
   line-height: 1;

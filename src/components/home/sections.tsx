@@ -43,7 +43,7 @@ export function SolutionSection() {
         <div>
           <SectionHeading
             kicker="لدينا الحل"
-            title="مرحباً بك في أكاديمية The Feeling Bliss.. حيث تتحول العرقلة إلى قوة دفع!"
+            title="مرحباً بك في Feeling Bliss Academy حيث تتحول العرقلة إلى قوة دفع!"
             description="في الأكاديمية، لا نقدم لك مجرد نصائح إنشائية. لقد صممنا نظاماً مهنياً ومتكاملاً يدمج بين التشبيك النفسي والتمكين المادي العملي لتتخلص من المعيقات وتصل إلى حالة النعيم والبهجة النفسية والوفرة المالية التي تستحقها."
           />
         </div>
@@ -251,7 +251,7 @@ export function FinalCtaSection() {
           <div className="hero-actions centered-buttons">
             
             <a
-              className="button button-secondary"
+              className="button button-secondary button-red"
               href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
