@@ -4,6 +4,7 @@ export const siteConfig = {
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://feelingblissacademy.com",
   logoUrl: "/branding/feeling-bliss-academy-logo.png",
+  founderPhotoUrl: "/branding/ayat-awde-about.jpeg",
   email:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@feelingblissacademy.com",
   whatsappNumberDisplay: "+961 3 967 806",

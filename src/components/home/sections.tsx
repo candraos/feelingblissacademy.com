@@ -122,6 +122,17 @@ export function AboutStorySection() {
               description="تجربة حقيقية"
             />
 
+            <div className="about-story-portrait-shell">
+              <Image
+                src={siteConfig.founderPhotoUrl}
+                alt="د. آيات عودة"
+                width={520}
+                height={720}
+                sizes="(max-width: 760px) 80vw, (max-width: 1200px) 32vw, 360px"
+                className="about-story-portrait-image"
+              />
+            </div>
+
             <div className="about-story-prose">
               <p>
                 مرحباً، أنا <span className="text-accent-red">الدكتورة آيات عودة</span>.
