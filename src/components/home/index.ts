@@ -10,4 +10,5 @@ export {
   PainPointsSection,
   SocialProofSection,
   SolutionSection,
+  TestimonialsSection,
 } from "@/components/home/sections";

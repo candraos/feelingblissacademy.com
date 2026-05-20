@@ -740,6 +740,45 @@ section[id] {
   color: var(--teal-strong);
 }
 
+.testimonials-grid {
+  gap: 1rem;
+}
+
+.testimonial-card {
+  display: grid;
+  gap: 1rem;
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 249, 247, 0.94)),
+    var(--surface);
+  border-color: rgba(13, 102, 100, 0.14);
+}
+
+.testimonial-head {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.testimonial-name {
+  margin: 0;
+  color: var(--teal-strong);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.testimonial-role {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.testimonial-quote {
+  margin: 0;
+  color: var(--foreground);
+  line-height: 1.95;
+  font-size: 1rem;
+}
+
 .offer-layout {
   display: grid;
   gap: 1rem;
@@ -1015,7 +1054,8 @@ section[id] {
   .pain-grid,
   .audience-grid,
   .social-grid,
-  .module-grid {
+  .module-grid,
+  .testimonials-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1076,6 +1116,10 @@ section[id] {
   .audience-grid,
   .social-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .footer-shell {

@@ -14,6 +14,21 @@ import { OfferCountdown } from "@/components/home/offer-countdown";
 import { SectionHeading } from "@/components/home/shared";
 import { siteConfig } from "@/lib/site-config";
 
+const testimonials = [
+  {
+    name: "المتدربة ريم عبد الرحمن",
+    role: "رائدة أعمال",
+    quote:
+      "صراحة دورة تطوير هدفك بنجاح كانت من أكثر الدورات اللي أثرت فيني بشكل فعلي مو مجرد كلام نظري وخلاص. قبل الدورة كنت أعاني من تشتت كبير وما عندي وضوح كامل لهدفي ولا للطريق اللي أبغى أمشي فيه، لكن خلال الدورة بدأت الصورة تتضح لي خطوة بخطوة وصرت أعرف وش أبغى بالضبط وكيف أوصل له بطريقة مرتبة وواضحة. أكثر شيء استفدت منه إن الطريقة ساعدتني أعالج التشتت اللي كان يستهلك طاقتي وتركيزي وصرت أشتغل على هدفي بثقة وتنظيم أكبر. وبفضل الله ثم بفضل الأدوات والتوجيهات اللي تعلمتها قدرت أحقق المركز الثاني على الدفعة في برنامج المنتورشب لرواد الأعمال، وهذا الشيء أعتبره من النتائج الجميلة اللي ما كانت بتصير بنفس الوضوح قبل الدورة. كمان أحب أشكر الدكتورة آيات على أسلوبها الراقي واهتمامها الحقيقي فينا، كانت قريبة من الجميع وتشرح بطريقة بسيطة وعميقة بنفس الوقت وتحفزنا بدون تعقيد أو ضغط. الله يجزاها كل خير ويبارك لها في علمها وأثرها.",
+  },
+  {
+    name: "المتدربة د. فاطمة",
+    role: "طبيبة عامة",
+    quote:
+      "قبل ما أحضر الورشة مع دكتورة آيات، كنت ضايعة ومشتتة بين أهداف كتيرة ومش عارفة كيف إمشي فيهن سوا. بس معها، قدرت نظّم أفكاري، رتّب أولوياتي بشكل صح، وإمشي على طريق واضح. عنجد شكراً كتير إلك دكتورة آيات على هيدي التجربة والمساعدة الحقيقية.",
+  },
+] as const;
+
 export function PainPointsSection() {
   return (
     <section className="section" id="pain-points">
@@ -268,6 +283,34 @@ export function SocialProofSection() {
             ))}
           </ul>
         </article>
+      </div>
+    </section>
+  );
+}
+
+export function TestimonialsSection() {
+  return (
+    <section className="section" id="testimonials">
+      <div className="container">
+        <SectionHeading
+          kicker="آراء المشتركين"
+          title="كيف يصف المشتركون أثر التجربة بعد التطبيق؟"
+          description="هذه شهادات مباشرة من مشتركات شاركن في التجربة وخرجن منها بوضوح أكبر، ترتيب عملي، ونتائج ملموسة."
+          centered
+        />
+
+        <div className="card-grid testimonials-grid">
+          {testimonials.map((item) => (
+            <article key={item.name} className="surface-card testimonial-card">
+              <div className="testimonial-head">
+                <p className="testimonial-name">{item.name}</p>
+                <p className="testimonial-role">{item.role}</p>
+              </div>
+
+              <p className="testimonial-quote">"{item.quote}"</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

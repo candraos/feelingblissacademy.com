@@ -5,6 +5,7 @@ export const navigationItems = [
   { href: "#about-story", label: "من نحن؟" },
   { href: "#modules", label: "المحاور" },
   { href: "#audience", label: "لمن البرنامج" },
+  { href: "#testimonials", label: "الآراء" },
   { href: "#offer", label: "الأسعار" },
 ] as const;
 

@@ -10,6 +10,7 @@ import {
   SiteHeader,
   SocialProofSection,
   SolutionSection,
+  TestimonialsSection,
 } from "@/components/home";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <AboutStorySection />
         <ModulesSection />
         <AudienceSection />
+        <TestimonialsSection />
         <SocialProofSection />
         <OfferSection />
         <FinalCtaSection />
