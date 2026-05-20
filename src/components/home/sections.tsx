@@ -4,6 +4,7 @@ import {
   bonusItems,
   moduleCards,
   offerFeatures,
+  pricingMessages,
   painPointCards,
   solutionPillars,
   transformationScenarios,
@@ -312,6 +313,14 @@ export function OfferSection() {
               الأدوات التطبيقية، والمكافآت التي تساعدك على الربط بين الوعي
               النفسي و<span className="text-accent-red">الانضباط المالي</span>.
             </p>
+
+            <div className="pricing-message-list">
+              {pricingMessages.map((message) => (
+                <p key={message} className="pricing-message">
+                  {message}
+                </p>
+              ))}
+            </div>
 
             <ul className="feature-list" role="list">
               {offerFeatures.map((item) => (

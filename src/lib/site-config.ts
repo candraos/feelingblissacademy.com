@@ -12,7 +12,7 @@ export const siteConfig = {
   paymentUrl: process.env.NEXT_PUBLIC_PAYMENT_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "",
   offerOriginalPrice: 299,
-  offerCurrentPrice: 99,
+  offerCurrentPrice: 199,
   refundWindowDays: 7,
   offerTimerMinutes: 135,
 } as const;

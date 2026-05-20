@@ -784,6 +784,21 @@ section[id] {
   color: var(--teal-strong);
 }
 
+.pricing-message-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.pricing-message {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border-radius: 1.1rem;
+  color: var(--foreground);
+  background: rgba(13, 102, 100, 0.05);
+  border: 1px solid rgba(13, 102, 100, 0.08);
+  line-height: 1.8;
+}
+
 .bonus-card {
   padding: 1rem;
   background: rgba(255, 255, 255, 0.78);
