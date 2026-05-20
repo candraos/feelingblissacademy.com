@@ -7,14 +7,25 @@ import { siteConfig } from "@/lib/site-config";
 
 type NavigationHref = (typeof navigationItems)[number]["href"];
 
-function getActiveHref(offset: number) {
+function getActiveHref(marker: number) {
   let currentHref: NavigationHref = navigationItems[0]?.href ?? "#hero";
 
-  for (const item of navigationItems) {
+  for (const [index, item] of navigationItems.entries()) {
     const section = document.querySelector<HTMLElement>(item.href);
+    const nextSection = navigationItems[index + 1]
+      ? document.querySelector<HTMLElement>(navigationItems[index + 1].href)
+      : null;
 
-    if (section && section.offsetTop <= offset) {
+    if (!section) {
+      continue;
+    }
+
+    const sectionTop = section.offsetTop;
+    const nextSectionTop = nextSection?.offsetTop ?? Number.POSITIVE_INFINITY;
+
+    if (marker >= sectionTop && marker < nextSectionTop) {
       currentHref = item.href;
+      break;
     }
   }
 
@@ -28,51 +39,18 @@ export function SiteHeader() {
 
   useEffect(() => {
     function updateActiveSection() {
-      setActiveHref(getActiveHref(window.scrollY + 140));
+      const marker = window.scrollY + Math.min(window.innerHeight * 0.3, 220);
+      setActiveHref(getActiveHref(marker));
     }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (left, right) =>
-              Math.abs(left.boundingClientRect.top) -
-              Math.abs(right.boundingClientRect.top)
-          );
-
-        if (visibleEntries[0]) {
-          const target = visibleEntries[0].target as HTMLElement;
-          const matchedHref = navigationItems.find(
-            (item) => item.href === `#${target.id}`
-          )?.href;
-
-          if (matchedHref) {
-            setActiveHref(matchedHref);
-          }
-        }
-      },
-      {
-        rootMargin: "-35% 0px -50% 0px",
-        threshold: [0.15, 0.35, 0.6],
-      }
-    );
-
-    navigationItems.forEach((item) => {
-      const section = document.querySelector<HTMLElement>(item.href);
-
-      if (section) {
-        observer.observe(section);
-      }
-    });
 
     updateActiveSection();
     window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
     window.addEventListener("hashchange", updateActiveSection);
 
     return () => {
-      observer.disconnect();
       window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
       window.removeEventListener("hashchange", updateActiveSection);
     };
   }, []);
@@ -89,10 +67,8 @@ export function SiteHeader() {
                 return (
                   <li key={item.href}>
                     <a
-                      className={`px-1 py-2 transition ${
-                        isActive
-                          ? "font-semibold text-green-600 underline decoration-2 decoration-green-600 underline-offset-8"
-                          : "text-gray-500 hover:text-gray-700"
+                      className={`header-nav-link px-1 py-2 transition ${
+                        isActive ? "is-active font-semibold" : ""
                       }`}
                       href={item.href}
                       aria-current={isActive ? "page" : undefined}

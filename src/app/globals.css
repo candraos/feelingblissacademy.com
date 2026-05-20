@@ -10,6 +10,7 @@
   --muted: #5f7077;
   --line: rgba(23, 48, 57, 0.12);
   --line-strong: rgba(23, 48, 57, 0.2);
+  --brand-hat: #0ca3bf;
   --teal: #0d6664;
   --teal-strong: #0a4d4f;
   --gold: #d3ad62;
@@ -93,6 +94,24 @@ textarea:focus {
 
 section[id] {
   scroll-margin-top: 6rem;
+}
+
+.header-nav-link {
+  color: #6b7280;
+}
+
+.header-nav-link:hover,
+.header-nav-link:focus-visible {
+  color: var(--brand-hat);
+  outline: none;
+}
+
+.header-nav-link.is-active {
+  color: var(--brand-hat);
+  text-decoration-line: underline;
+  text-decoration-color: var(--brand-hat);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.5rem;
 }
 
 .page-shell {
