@@ -14,6 +14,8 @@ import { OfferCountdown } from "@/components/home/offer-countdown";
 import { SectionHeading } from "@/components/home/shared";
 import { siteConfig } from "@/lib/site-config";
 
+const paymentSecurityNote = "الدفع آمن، ويمكنك أيضًا الدفع ببطاقة فيزا.";
+
 const testimonials = [
   {
     name: "المتدربة ريم عبد الرحمن",
@@ -429,6 +431,7 @@ export function OfferSection() {
             ) : null}
 
             <p className="form-caption">
+              {siteConfig.paymentUrl ? `${paymentSecurityNote} ` : null}
               سنرد عليك مباشرة لتأكيد المقعد والإجابة عن أي سؤال قبل الاشتراك.
             </p>
           </article>
@@ -484,6 +487,10 @@ export function FinalCtaSection() {
               تحدث معنا على واتساب
             </a>
           </div>
+
+          {siteConfig.paymentUrl ? (
+            <p className="form-caption">{paymentSecurityNote}</p>
+          ) : null}
         </article>
       </div>
     </section>
