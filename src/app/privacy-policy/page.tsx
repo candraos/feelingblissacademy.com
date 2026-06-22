@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "سياسة الخصوصية | Feeling Bliss Academy",
   description: "سياسة الخصوصية الخاصة بموقع Feeling Bliss Academy.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

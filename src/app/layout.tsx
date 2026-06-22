@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: siteConfig.logoUrl,
+  },
   openGraph: {
     title: seoConfig.title,
     description: seoConfig.description,
@@ -47,6 +51,27 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: siteConfig.englishName,
+  alternateName: siteConfig.arabicName,
+  url: siteConfig.siteUrl,
+  logo: `${siteConfig.siteUrl}${siteConfig.logoUrl}`,
+  email: siteConfig.email,
+  ...(siteConfig.instagramUrl
+    ? { sameAs: [siteConfig.instagramUrl] }
+    : {}),
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.englishName,
+  url: siteConfig.siteUrl,
+  inLanguage: "ar",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,7 +84,21 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={candaraArabic.variable}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

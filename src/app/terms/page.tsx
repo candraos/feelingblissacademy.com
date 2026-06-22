@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "الشروط والأحكام | Feeling Bliss Academy",
   description: "الشروط والأحكام الخاصة بموقع Feeling Bliss Academy.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {
