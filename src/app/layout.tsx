@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import { seoConfig, siteConfig } from "@/lib/site-config";
 
@@ -98,6 +99,16 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RKQVES7W7Y"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RKQVES7W7Y');`}
+        </Script>
       </body>
     </html>
   );
