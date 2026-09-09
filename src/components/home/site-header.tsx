@@ -84,7 +84,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-4">
             <a
               className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#FF3131] px-4 py-2.5 text-sm font-medium text-white! transition hover:bg-[#d92929] hover:text-white md:px-5"
-              href={siteConfig.whatsappUrl}
+              href={siteConfig.CtaUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
