@@ -11,6 +11,7 @@ import {
   SocialProofSection,
   SolutionSection,
   TestimonialsSection,
+  WhatsappFloatButton,
 } from "@/components/home";
 import { seoConfig, siteConfig } from "@/lib/site-config";
 
@@ -57,6 +58,7 @@ export default function Home() {
       </main>
 
       <SiteFooter />
+      <WhatsappFloatButton />
     </div>
   );
 }
