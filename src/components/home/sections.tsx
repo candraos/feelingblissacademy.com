@@ -467,16 +467,16 @@ export function FinalCtaSection() {
           <OfferCountdown />
 
           <div className="hero-actions centered-buttons">
-            {siteConfig.paymentUrl ? (
+           
               <a
                 className="button button-secondary button-payment"
-                href={siteConfig.paymentUrl}
+                href={siteConfig.CtaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                ادخل إلى بوابة الدفع الإلكتروني
+               اشترك الآن
               </a>
-            ) : null}
+            
 
             <a
               className="button button-secondary button-red"

@@ -8,7 +8,9 @@ export const siteConfig = {
   email:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@feelingblissacademy.com",
   whatsappNumberDisplay: "+961 3 967 806",
-  CtaUrl:
+  whatsappUrl:
+    process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/9613967806",
+    CtaUrl:
     process.env.NEXT_PUBLIC_CTA_URL ?? "https://forms.gle/4JsBPCaQr7BSd5zM6",
   paymentUrl: process.env.NEXT_PUBLIC_PAYMENT_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "",
