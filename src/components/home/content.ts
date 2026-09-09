@@ -6,7 +6,7 @@ export const navigationItems = [
   { href: "#modules", label: "المحاور" },
   { href: "#audience", label: "لمن البرنامج" },
   { href: "#testimonials", label: "الآراء" },
-  { href: "#offer", label: "الأسعار" },
+  // { href: "#offer", label: "الأسعار" },
 ] as const;
 
 export const heroHighlights = [

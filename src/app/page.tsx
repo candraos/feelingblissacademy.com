@@ -52,7 +52,7 @@ export default function Home() {
         <AudienceSection />
         <TestimonialsSection />
         <SocialProofSection />
-        <OfferSection />
+        
         <FinalCtaSection />
       </main>
 
