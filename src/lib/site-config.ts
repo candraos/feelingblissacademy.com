@@ -12,6 +12,9 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/9613967806",
     CtaUrl:
     process.env.NEXT_PUBLIC_CTA_URL ?? "https://forms.gle/4JsBPCaQr7BSd5zM6",
+  coupleAssessmentUrl:
+    process.env.NEXT_PUBLIC_COUPLE_ASSESSMENT_URL ??
+    "https://forms.gle/1NTLiy5LbWUqDgJV7",
   paymentUrl: process.env.NEXT_PUBLIC_PAYMENT_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "",
   offerOriginalPrice: 299,
@@ -19,6 +22,22 @@ export const siteConfig = {
   refundWindowDays: 7,
   offerTimerMinutes: 135,
 } as const;
+
+export const sitePaths = {
+  home: "/",
+  coupleProgram: "/couple-transform",
+} as const;
+
+export const siteNavigation = [
+  { href: sitePaths.home, label: "الرئيسية" },
+  { href: sitePaths.coupleProgram, label: "برنامج علاج العلاقة" },
+] as const;
+
+export function getWhatsappUrl(message: string) {
+  const separator = siteConfig.whatsappUrl.includes("?") ? "&" : "?";
+
+  return `${siteConfig.whatsappUrl}${separator}text=${encodeURIComponent(message)}`;
+}
 
 export const seoConfig = {
   title:

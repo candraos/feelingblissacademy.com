@@ -1,72 +1,47 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { navigationItems } from "@/components/home/content";
-import { siteConfig } from "@/lib/site-config";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { MobileSideNav } from "@/components/home/mobile-side-nav";
+import { siteConfig, siteNavigation } from "@/lib/site-config";
 
-type NavigationHref = (typeof navigationItems)[number]["href"];
+type SiteHeaderProps = {
+  ctaHref?: string;
+  ctaLabel?: string;
+  logoHref?: string;
+};
 
-function getActiveHref(marker: number) {
-  let currentHref: NavigationHref = navigationItems[0]?.href ?? "#hero";
-
-  for (const [index, item] of navigationItems.entries()) {
-    const section = document.querySelector<HTMLElement>(item.href);
-    const nextSection = navigationItems[index + 1]
-      ? document.querySelector<HTMLElement>(navigationItems[index + 1].href)
-      : null;
-
-    if (!section) {
-      continue;
-    }
-
-    const sectionTop = section.offsetTop;
-    const nextSectionTop = nextSection?.offsetTop ?? Number.POSITIVE_INFINITY;
-
-    if (marker >= sectionTop && marker < nextSectionTop) {
-      currentHref = item.href;
-      break;
-    }
+function isActivePath(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === "/";
   }
 
-  return currentHref;
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function SiteHeader() {
-  const [activeHref, setActiveHref] = useState<NavigationHref>(
-    navigationItems[0]?.href ?? "#hero"
-  );
-
-  useEffect(() => {
-    function updateActiveSection() {
-      const marker = window.scrollY + Math.min(window.innerHeight * 0.3, 220);
-      setActiveHref(getActiveHref(marker));
-    }
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
-    window.addEventListener("hashchange", updateActiveSection);
-
-    return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
-      window.removeEventListener("hashchange", updateActiveSection);
-    };
-  }, []);
+export function SiteHeader({
+  ctaHref = siteConfig.CtaUrl,
+  ctaLabel = "اشترك الآن",
+  logoHref = "#hero",
+}: SiteHeaderProps) {
+  const pathname = usePathname();
+  const activeHref = siteNavigation.find((item) =>
+    isActivePath(pathname, item.href)
+  )?.href;
 
   return (
     <header className="sticky top-0 z-40 border-b border-gray-100 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-16 lg:gap-8 lg:px-8">
         <div className="order-2 flex flex-1 items-center justify-end md:order-2 md:justify-between">
           <nav aria-label="Global" className="hidden md:block">
-            <ul className="flex items-center gap-6 text-sm">
-              {navigationItems.map((item) => {
+            <ul className="flex items-center gap-8 text-base">
+              {siteNavigation.map((item) => {
                 const isActive = item.href === activeHref;
 
                 return (
                   <li key={item.href}>
-                    <a
+                    <Link
                       className={`header-nav-link px-1 py-2 transition ${
                         isActive ? "is-active font-semibold" : ""
                       }`}
@@ -74,29 +49,41 @@ export function SiteHeader() {
                       aria-current={isActive ? "page" : undefined}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <a
               className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#FF3131] px-4 py-2.5 text-sm font-medium text-white! transition hover:bg-[#d92929] hover:text-white md:px-5"
-              href={siteConfig.CtaUrl}
+              href={ctaHref}
               target="_blank"
               rel="noopener noreferrer"
             >
-              اشترك الآن
+              {ctaLabel}
             </a>
+
+            <MobileSideNav
+              items={siteNavigation}
+              tagline={siteConfig.arabicName}
+              ctaHref={ctaHref}
+              ctaLabel={ctaLabel}
+              activeHref={activeHref}
+            />
           </div>
         </div>
 
-        <a
+        <Link
           className="order-1 flex items-center text-teal-600 md:order-1"
-          href="#hero"
-          aria-label="العودة إلى بداية الصفحة"
+          href={logoHref}
+          aria-label={
+            logoHref.startsWith("#")
+              ? "العودة إلى بداية الصفحة"
+              : "الانتقال إلى الصفحة الرئيسية"
+          }
         >
           <span className="sr-only">Home</span>
           <Image
@@ -107,7 +94,7 @@ export function SiteHeader() {
             sizes="(max-width: 767px) 144px, 96px"
             className="h-14 w-auto rounded-md md:h-10"
           />
-        </a>
+        </Link>
       </div>
     </header>
   );

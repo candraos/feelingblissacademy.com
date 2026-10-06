@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, sitePaths } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -8,6 +8,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+      images: [`${siteConfig.siteUrl}${siteConfig.logoUrl}`],
+    },
+    {
+      url: `${siteConfig.siteUrl}${sitePaths.coupleProgram}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
       images: [`${siteConfig.siteUrl}${siteConfig.logoUrl}`],
     },
     {
