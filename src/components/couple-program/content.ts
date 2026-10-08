@@ -7,6 +7,25 @@ export const coupleProgramEnglishName = "Couple Transform Program";
 // The booking keyword the academy asks couples to send on WhatsApp.
 export const coupleWhatsappUrl = getWhatsappUrl("Transform");
 
+// Payment goes through WhatsApp for now. When a direct payment link exists,
+// swap `href` per method.
+export const couplePaymentMethods = [
+  {
+    name: "Whish Money",
+    logo: "/payments/whish-money.svg",
+    logoWidth: 124,
+    logoHeight: 28,
+    href: getWhatsappUrl("Transform - Whish Money"),
+  },
+  {
+    name: "OMT",
+    logo: "/payments/omt.svg",
+    logoWidth: 119,
+    logoHeight: 48,
+    href: getWhatsappUrl("Transform - OMT"),
+  },
+] as const;
+
 export const coupleHeroHighlights = [
   "12 ساعة علاجية بجدول مرن: على مدار 12 أسبوعاً، أو 6 أسابيع مكثفة.",
   "حضورياً في العيادة أو أونلاين من منزلكما، بنفس الجودة والفاعلية.",
@@ -139,7 +158,13 @@ export const coupleScheduleOptions = [
   },
 ] as const;
 
-export const coupleStructureFeatures = [
+type StructureFeature = {
+  title: string;
+  description: string;
+  showPaymentMethods?: boolean;
+};
+
+export const coupleStructureFeatures: ReadonlyArray<StructureFeature> = [
   {
     title: "حضور مشترك (حضورياً أو أونلاين)",
     description:
@@ -153,9 +178,10 @@ export const coupleStructureFeatures = [
   {
     title: "تسهيلات في الدفع وطرق الاشتراك",
     description:
-      "إمكانية التقسيط على دفعتين لتسهيل الانضمام للبرنامج، ويمكن تحويل قيمة الاشتراك بسهولة عبر تطبيق Whish Money (Whish Payment) من خلال التواصل المباشر عبر الواتساب.",
+      "إمكانية التقسيط على دفعتين لتسهيل الانضمام للبرنامج، ويمكن تحويل قيمة الاشتراك بسهولة عبر تطبيق Whish Money (Whish Payment) أو عبر OMT من خلال التواصل المباشر عبر الواتساب.",
+    showPaymentMethods: true,
   },
-] as const;
+];
 
 export const coupleWorkAxes = [
   "جلسات تقييم وتشخيص دقيقة.",
@@ -267,7 +293,7 @@ export const coupleBookingSteps = [
   {
     title: "نتواصل معكما بالتفاصيل",
     description:
-      "نرسل لكما كافة التفاصيل وطريقة التحويل عبر Whish Payment، مع إمكانية التقسيط على دفعتين.",
+      "نرسل لكما كافة التفاصيل وطريقة التحويل عبر Whish Money أو OMT، مع إمكانية التقسيط على دفعتين.",
   },
   {
     title: "استلما الهدايا وابدآ",

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CoupleCtaButtons } from "@/components/couple-program/cta-buttons";
+import { CouplePaymentMethods } from "@/components/couple-program/payment-methods";
 import {
   coupleAudienceIntro,
   coupleAudienceItems,
@@ -287,6 +288,7 @@ export function CoupleStructureSection() {
               <article key={item.title} className="surface-card info-card">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
+                {item.showPaymentMethods ? <CouplePaymentMethods /> : null}
               </article>
             ))}
           </div>
@@ -489,6 +491,8 @@ export function CoupleFinalCtaSection() {
               </li>
             ))}
           </ol>
+
+          <CouplePaymentMethods centered tone="dark" />
 
           <CoupleCtaButtons centered tone="dark" />
 
