@@ -11,6 +11,7 @@ import {
   CoupleStructureSection,
   CoupleTestimonialsSection,
   CoupleValueSection,
+  CoupleVideoSection,
   RelationshipKillersSection,
   coupleProgramEnglishName,
   coupleProgramName,
@@ -105,6 +106,7 @@ export default function CoupleTransformPage() {
         <RelationshipKillersSection />
         <CoupleValueSection />
         <CoupleBenefitsSection />
+        <CoupleVideoSection />
         <CoupleStructureSection />
         <CoupleGiftsSection />
         <CoupleTestimonialsSection />

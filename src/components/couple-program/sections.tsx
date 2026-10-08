@@ -17,6 +17,7 @@ import {
   coupleStructureFeatures,
   coupleTestimonials,
   coupleValueCards,
+  coupleVideoSrc,
   coupleWorkAxes,
   relationshipKillers,
   relationshipKillersBridge,
@@ -238,6 +239,41 @@ export function CoupleBenefitsSection() {
             ))}
           </ul>
         </article>
+      </div>
+    </section>
+  );
+}
+
+export function CoupleVideoSection() {
+  return (
+    <section className="section section-alt" id="video">
+      <div className="container video-layout">
+        <div className="video-copy">
+          <SectionHeading
+            kicker="شاهدا الفيديو"
+            title={
+              <>
+                تعرفا على <span className="text-accent-red">باقة البرنامج</span>{" "}
+                في أقل من دقيقة
+              </>
+            }
+            description="فيديو قصير يشرح لكما باقة برنامج علاج العلاقة، لتبدآ القرار وأنتما على اطلاع كامل."
+          />
+
+          <CoupleCtaButtons />
+        </div>
+
+        <div className="video-frame">
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            src={coupleVideoSrc}
+            aria-label="فيديو يشرح باقة برنامج علاج العلاقة لتحيا من جديد"
+          >
+            متصفحكما لا يدعم تشغيل الفيديو.
+          </video>
+        </div>
       </div>
     </section>
   );

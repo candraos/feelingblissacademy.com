@@ -7,6 +7,9 @@ export const coupleProgramEnglishName = "Couple Transform Program";
 // The booking keyword the academy asks couples to send on WhatsApp.
 export const coupleWhatsappUrl = getWhatsappUrl("Transform");
 
+// The `#t=0.1` fragment makes mobile Safari paint a first frame as the poster.
+export const coupleVideoSrc = "/videos/couple-therapy.mp4#t=0.1";
+
 // Payment goes through WhatsApp for now. When a direct payment link exists,
 // swap `href` per method.
 export const couplePaymentMethods = [

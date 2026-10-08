@@ -15,5 +15,6 @@ export {
   CoupleStructureSection,
   CoupleTestimonialsSection,
   CoupleValueSection,
+  CoupleVideoSection,
   RelationshipKillersSection,
 } from "@/components/couple-program/sections";
