@@ -268,6 +268,7 @@ export function CoupleVideoSection() {
             controls
             playsInline
             preload="metadata"
+            poster="/thumbnail.jpeg"
             src={coupleVideoSrc}
             aria-label="فيديو يشرح باقة برنامج علاج العلاقة لتحيا من جديد"
           >
