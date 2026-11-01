@@ -9,15 +9,27 @@ export const coupleWhatsappUrl = getWhatsappUrl("Transform");
 
 export const coupleVideoSrc = "/videos/couple-therapy.mp4";
 
-// Payment goes through WhatsApp for now. When a direct payment link exists,
-// swap `href` per method.
-export const couplePaymentMethods = [
+type CouplePaymentMethod = {
+  name: string;
+  logo: string;
+  logoWidth: number;
+  logoHeight: number;
+  // WhatsApp link: the payment route when there is no `qrCode`, otherwise the
+  // place to send the payment confirmation.
+  href: string;
+  // When set, clicking the method shows this QR code to scan instead of
+  // opening WhatsApp.
+  qrCode?: string;
+};
+
+export const couplePaymentMethods: readonly CouplePaymentMethod[] = [
   {
     name: "Whish Money",
     logo: "/payments/whish-money.svg",
     logoWidth: 124,
     logoHeight: 28,
     href: getWhatsappUrl("Transform - Whish Money"),
+    qrCode: "/payments/qrcode.jpeg",
   },
   {
     name: "OMT",
@@ -26,7 +38,7 @@ export const couplePaymentMethods = [
     logoHeight: 48,
     href: getWhatsappUrl("Transform - OMT"),
   },
-] as const;
+];
 
 export const coupleHeroHighlights = [
   "12 ساعة علاجية بجدول مرن: على مدار 12 أسبوعاً، أو 6 أسابيع مكثفة.",

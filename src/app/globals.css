@@ -1732,6 +1732,76 @@ section[id] {
   font-weight: 700;
 }
 
+.payment-method-hint.is-qr {
+  color: var(--teal);
+}
+
+button.payment-method {
+  width: 100%;
+  cursor: pointer;
+}
+
+body:has(.payment-qr-dialog[open]) {
+  overflow: hidden;
+}
+
+.payment-qr-dialog {
+  width: min(24rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  color: var(--foreground);
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-strong);
+}
+
+.payment-qr-dialog::backdrop {
+  background: rgba(12, 38, 48, 0.6);
+}
+
+.payment-qr-body {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+
+.payment-qr-body h3,
+.payment-qr-body p {
+  margin: 0;
+}
+
+.payment-qr-body h3 {
+  color: var(--teal-strong);
+  font-size: 1.25rem;
+}
+
+.payment-qr-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.payment-qr-image {
+  width: min(100%, 17rem);
+  height: auto;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+}
+
+.payment-qr-actions {
+  display: grid;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.payment-qr-actions form {
+  display: contents;
+}
+
 .video-layout {
   display: grid;
   gap: 1.6rem;
